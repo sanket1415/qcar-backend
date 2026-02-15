@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: qcar-backend
+    env: java
+    buildCommand: mvn clean package -DskipTests
+    startCommand: java -jar target/qcar-system-1.0.0.jar
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: qcar-db
+          property: connectionString
+      - key: APP_BASE_URL
+        value: https://qcar.onrender.com
+
+databases:
+  - name: qcar-db
+    databaseName: qcar_db
+    user: qcar_user
