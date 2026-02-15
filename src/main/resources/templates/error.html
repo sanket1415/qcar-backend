@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - Qcar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .error-container {
+            text-align: center;
+            color: white;
+        }
+
+        .error-code {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 120px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #e94560, #06d6a0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .error-message {
+            font-size: 24px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .error-description {
+            font-size: 16px;
+            opacity: 0.7;
+            margin-bottom: 40px;
+        }
+
+        .btn-home {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #e94560, #c7365f);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-home:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(233, 69, 96, 0.4);
+        }
+    </style>
+</head>
+<body>
+<div class="error-container">
+    <div class="error-code">404</div>
+    <div class="error-message" th:text="${error != null ? error : 'Page Not Found'}"></div>
+    <div class="error-description">
+        The car details you're looking for could not be found.<br>
+        Please check the QR code and try again.
+    </div>
+    <a href="/" class="btn-home">Go to Home</a>
+</div>
+</body>
+</html>
